@@ -1,0 +1,80 @@
+1
+00:00:01,000 --> 00:00:07,000
+When you think of a desktop application, you probably think of it as a single unit.
+
+2
+00:00:07,000 --> 00:00:14,000
+You open the app and do various things in it. On Android, it is slightly different.
+
+3
+00:00:14,000 --> 00:00:16,000
+Rather than a single unit,
+
+4
+00:00:16,000 --> 00:00:24,000
+it is better to think of an Android app as a collection of screens, or activity as they are called in Android.
+
+5
+00:00:24,000 --> 00:00:28,000
+An activity is very similar to a web page. We can think of a
+
+6
+00:00:28,000 --> 00:00:31,000
+website as a collection of web pages,
+
+7
+00:00:31,000 --> 00:00:39,000
+and an Android app as a collection of activities. Let's go through an example.
+
+8
+00:00:39,000 --> 00:00:48,000
+Here we are looking at the main page of the Twitter website. The equivalent in Android will be MainActivity.
+
+9
+00:00:48,000 --> 00:00:53,000
+On the Twitter main page, we can click on an avatar to see the user profile.
+
+10
+00:00:53,000 --> 00:01:02,000
+On Android, we can do the same. What happens in that click? On the web, you are sent to a different page as
+
+11
+00:01:02,000 --> 00:01:13,000
+specified by the URL. On Android, you are sent to a different activity as specified by an intent.
+
+12
+00:01:13,000 --> 00:01:19,000
+On the web, links are not restricted to a single website; same for Android.
+
+13
+00:01:19,000 --> 00:01:26,000
+In fact, Android intents are more powerful than web links because the receiving activity can send data back
+
+14
+00:01:26,000 --> 00:01:28,000
+to the original activity.
+
+15
+00:01:28,000 --> 00:01:35,000
+For instance, when we click on the photo icon on the Twitter app, we are sent to the Gallery app.
+
+16
+00:01:35,000 --> 00:01:41,000
+We pick a photo in the Gallery app, which is then sent back to the Twitter app to be attached to a tweet.
+
+17
+00:01:41,000 --> 00:01:46,000
+Activity is the basic building block in Android.
+
+18
+00:01:46,000 --> 00:01:52,000
+Together with intents, different Android apps can work seamlessly with each other, making the system very
+
+19
+00:01:52,000 --> 00:01:55,000
+powerful and extensible.
+
+20
+00:01:55,000 --> 00:59:00,000
+With that, let's get set up to write our first Android app.
+

@@ -1,0 +1,32 @@
+1
+00:00:00,000 --> 00:00:10,000
+Hello, this is Chiu-Ki Chan, and welcome to the Hello World module.
+
+2
+00:00:10,000 --> 00:00:14,000
+In this module, we are going to work on the Hello World app.
+
+3
+00:00:14,000 --> 00:00:24,000
+First, we are going to understand the basic app structure. We will look at the various files and see what they do.
+
+4
+00:00:24,000 --> 00:00:30,000
+Next, we are going to add a launcher icon to our app using drawables.
+
+5
+00:00:30,000 --> 00:00:39,000
+After that, we will look into dimens to understand how we can use it customize our app depending on the size
+
+6
+00:00:39,000 --> 00:00:49,000
+of the device. Next, we are going to look into styles. After styles, we are going to add a menu to our app.
+
+7
+00:00:49,000 --> 00:00:54,000
+We are going to add action items to our menu and see how that works.
+
+8
+00:00:54,000 --> 00:59:00,000
+Finally, we are going to add a test to our Hello World app. Let's get started.
+

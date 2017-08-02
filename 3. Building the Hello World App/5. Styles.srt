@@ -1,0 +1,276 @@
+1
+00:00:02,000 --> 00:00:07,000
+As the Android platform evolves, the default style for applications has changed a lot.
+
+2
+00:00:07,000 --> 00:00:13,000
+On the left you can see the original style. It has a thin title bar above the app content.
+
+3
+00:00:13,000 --> 00:00:20,000
+In the middle is the Holo style. This is introduced in version 11 Honeycomb and made popular in version 14
+
+4
+00:00:20,000 --> 00:00:26,000
+Ice Cream Sandwich. The title bar becomes wider, and the app icon is shown.
+
+5
+00:00:26,000 --> 00:00:32,000
+On the right is material design. It is introduced in version 21 Lollipop.
+
+6
+00:00:32,000 --> 00:00:36,000
+In material design, we no longer show the app icon in the title bar.
+
+7
+00:00:36,000 --> 00:00:43,000
+Also, the title bar becomes taller. While the Android platform evolves, many users still have old phones,
+
+8
+00:00:43,000 --> 00:00:48,000
+so we need to make that your app looks good on devices at different API levels.
+
+9
+00:00:48,000 --> 00:00:54,000
+There are two ways to do that. One way is to make your app match the system style.
+
+10
+00:00:54,000 --> 00:00:59,000
+The other one is to ship the latest style with it using the support library.
+
+11
+00:00:59,000 --> 00:01:04,000
+I'm going to show you how to use the system style.
+
+12
+00:01:04,000 --> 00:01:10,000
+Here is our Hello World app again running on a Marshmallow API 23 emulator.
+
+13
+00:01:10,000 --> 00:01:19,000
+This style is actually the default Marshmallow style. This is what we get when we don't give our app a theme.
+
+14
+00:01:19,000 --> 00:01:24,000
+You may say that well that looks great, why do I need to do anything special?
+
+15
+00:01:24,000 --> 00:01:29,000
+The moment you want to customize your theme is when you will need to think about how it will look on different devices.
+
+16
+00:01:29,000 --> 00:01:38,000
+Let me show you how. Go to the values folder and create a new file called styles.xml.
+
+17
+00:01:38,000 --> 00:01:45,000
+Here we're going to add a new style attribute for the theme. We will call it AppTheme, and we'll have it
+
+18
+00:01:45,000 --> 00:01:51,000
+inherit from android:Theme. We won't customize our theme quite yet.
+
+19
+00:01:51,000 --> 00:02:02,000
+Rather, we'll link that in our Android manifest first. Add and attribute android:theme in your application tag.
+
+20
+00:02:02,000 --> 00:02:09,000
+We will choose the @style/AppTheme. Let's deploy and see how it looks like.
+
+21
+00:02:09,000 --> 00:02:14,000
+Looks quite different, right? This is how android:Theme looks like.
+
+22
+00:02:14,000 --> 00:02:25,000
+If you want to get back to the style we saw earlier, we have to use the Material theme, Theme.Material.
+
+23
+00:02:25,000 --> 00:02:29,000
+Okay, we get back our original look, but then there's some red squiggly.
+
+24
+00:02:29,000 --> 00:02:39,000
+Let's hover over that and see what's going on. Ah, Android is complaining that Theme.Material requires API level 21.
+
+25
+00:02:39,000 --> 00:02:46,000
+The problem is that if we are going to code this into our style directly, we can only ship this app to
+
+26
+00:02:46,000 --> 00:02:53,000
+devices that are 21 or above. If we want to target more devices, we need to do something different.
+
+27
+00:02:53,000 --> 00:03:00,000
+This is where we will use resource folders. Remember, we added the styles.xml file into the values folder,
+
+28
+00:03:00,000 --> 00:03:10,000
+which is the default. What we need to do is to add another folder called value-v21 so that Android will know
+
+29
+00:03:10,000 --> 00:03:17,000
+to load this file and use Theme.Material when we run this app on version 21 or above.
+
+30
+00:03:17,000 --> 00:03:23,000
+To do that, go back to the res folder, choose a New Android resource directory.
+
+31
+00:03:23,000 --> 00:03:32,000
+Here we want to change the quantifier depending on the level. Scroll down, and choose Version.
+
+32
+00:03:32,000 --> 00:03:42,000
+We will pick API level 21. Notice that the directory name is automatically created for you as values-21.
+
+33
+00:03:42,000 --> 00:03:52,000
+Click OK. Then we can copy that values.xml file that we made earlier with the Material theme into this folder.
+
+34
+00:03:52,000 --> 00:03:58,000
+After that, we can go back to values/styles.xml and revert that back to just Theme.
+
+35
+00:03:58,000 --> 00:04:05,000
+Now the red squigglies are gone. Let's deploy and make sure that our app still has the Material theme in
+
+36
+00:04:05,000 --> 00:04:14,000
+this emulator running API level 21. Yes it does. Great! Using the same technique, we call apply Holo style
+
+37
+00:04:14,000 --> 00:04:23,000
+to our app when the device is running version 14 or above. Create a new directory for version 14;
+
+38
+00:04:23,000 --> 00:04:29,000
+copy styles.xml into it. This time we are going to use the Holo theme.
+
+39
+00:04:29,000 --> 00:04:37,000
+If we deploy the app, it will look exactly the same on this emulator because the emulator is at API level 23,
+
+40
+00:04:37,000 --> 00:04:46,000
+so the file from values-v21 will be picked, and the Material theme will be used.
+
+41
+00:04:46,000 --> 00:04:52,000
+To see the Holo theme, we will need to have a new emulator. Let's go ahead and make it.
+
+42
+00:04:52,000 --> 00:05:02,000
+Click on the purple icon, Create Virtual Device, and we will choose the first one, which is Nexus S.
+
+43
+00:05:02,000 --> 00:05:10,000
+We can choose an emulator image that is greater than or equal to 14, but less than 21 for the Holo theme to show.
+
+44
+00:05:10,000 --> 00:05:20,000
+Let's download Jelly Bean API level 16. Great! Now that we have downloaded the extra system image, let's use it.
+
+45
+00:05:20,000 --> 00:05:26,000
+Next we will give it a name. The default name is fine, and we're going to launch it now.
+
+46
+00:05:26,000 --> 00:05:31,000
+With the emulator ready to go, let's deploy. Here we go. We have the Holo style.
+
+47
+00:05:31,000 --> 00:05:38,000
+Notice the app icon is shown next to the app name. This is how we know that we are using Holo style.
+
+48
+00:05:38,000 --> 00:05:45,000
+Now that we have set up our app to use the system default theme for our app, let's customize it a bit.
+
+49
+00:05:45,000 --> 00:05:52,000
+We are going to make all the text in our app blue. Go back to values folder, and look at styles.xml.
+
+50
+00:05:52,000 --> 00:05:59,000
+Here we can add an item to specify the text color. The name is the attribute that we want to customize,
+
+51
+00:05:59,000 --> 00:06:06,000
+meaning android:textColor, and the value's going to blue. We will specify in hex.
+
+52
+00:06:06,000 --> 00:06:13,000
+If we deploy it like that, the blue color will not show on this emulator because remember this emulator is
+
+53
+00:06:13,000 --> 00:06:25,000
+running version 16, meaning that it's greater than 14, so this style in values-14 is loaded, which does not
+
+54
+00:06:25,000 --> 00:06:31,000
+have this extra item. There are 2 things we can do, 1, we can duplicate this extra item in all the 3 styles
+
+55
+00:06:31,000 --> 00:06:40,000
+that we have defined, 1 for the default, 1 for level 14 or above, and 1 for level 21 or above.
+
+56
+00:06:40,000 --> 00:06:43,000
+That gets tedious when you have a lot of different items you want to customize.
+
+57
+00:06:43,000 --> 00:06:54,000
+What we can do instead is to define an extra parent. So here in values/styles.xml we are going to create an
+
+58
+00:06:54,000 --> 00:07:03,000
+extra style called AppBaseTheme. AppBaseTheme inherits from the proper system default theme.
+
+59
+00:07:03,000 --> 00:07:15,000
+And then in our own app we are going to have, once again, AppTheme, which inherits from AppBaseTheme.
+
+60
+00:07:15,000 --> 00:07:23,000
+We are going to specify the text color item inside AppTheme. Next, we are going to go to the two other
+
+61
+00:07:23,000 --> 00:07:32,000
+styles.xml and rename this into AppBaseTheme. So what happens?
+
+62
+00:07:32,000 --> 00:07:42,000
+If you go back to AndroidManifest.xml, you can see that our theme is still style/AppTheme.
+
+63
+00:07:42,000 --> 00:07:50,000
+AppTheme is defined only in the default styles.xml. It has the item for text color, and it inherits from AppBaseTheme.
+
+64
+00:07:50,000 --> 00:08:00,000
+When Android needs to load AppBaseTheme, it has three choices, the original theme in values/style.xml,
+
+65
+00:08:00,000 --> 00:08:09,000
+the Holo theme in the v14 folder, or the Material them in the v21 folder.
+
+66
+00:08:09,000 --> 00:08:15,000
+Android will load the appropriate one depending on the level of your device or emulator.
+
+67
+00:08:15,000 --> 00:08:26,000
+Let's deploy and check it out. Here we go. We have the Holo theme as evident by the icon, and our text is
+
+68
+00:08:26,000 --> 00:08:34,000
+blue as we specified in our AppTheme. By adding one level of indirection, we can have a central place for
+
+69
+00:08:34,000 --> 00:59:00,000
+our custom items while still taking advantage of the default system theme for different Android API levels.
+

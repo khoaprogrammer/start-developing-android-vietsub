@@ -1,0 +1,288 @@
+1
+00:00:02,000 --> 00:00:13,000
+Let's add some test to our Hello World app. In Android, there are two kinds of tests, pure Java tests and instrumentation tests.
+
+2
+00:00:13,000 --> 00:00:20,000
+Android is built on top of Java, but the Android framework provides a lot of extra functionalities.
+
+3
+00:00:20,000 --> 00:00:27,000
+To test those extra functionalities, such as activities, you will need to write instrumentation tests.
+
+4
+00:00:27,000 --> 00:00:33,000
+Because of the Android dependency, they need to be run on devices or emulators.
+
+5
+00:00:33,000 --> 00:00:39,000
+As a result, they tend to be a little bit slower than pure Java tests.
+
+6
+00:00:39,000 --> 00:00:48,000
+By pure Java tests, I mean tests that exercise the logic of your app that is written using only the standard Java functions.
+
+7
+00:00:48,000 --> 00:00:58,000
+Because it has no Android dependency, we can run them on the JVM, or Java Virtual Machine, on your host computer.
+
+8
+00:00:58,000 --> 00:01:03,000
+You do not need to deploy the app onto your device or emulator, and it is much faster.
+
+9
+00:01:03,000 --> 00:01:11,000
+Our Hello World app does not have any pure Java logic at this moment, so we are going to write instrumentation tests.
+
+10
+00:01:11,000 --> 00:01:13,000
+In particular, we will be writing
+
+11
+00:01:13,000 --> 00:01:21,000
+Espresso tests. Espresso is an Android testing framework written by Google.
+
+12
+00:01:21,000 --> 00:01:28,000
+It has a fluent API that allows you to find views, perform actions on them, and then verify the state.
+
+13
+00:01:28,000 --> 00:01:32,000
+Let's get started.
+
+14
+00:01:32,000 --> 00:01:37,000
+To use Espresso, we need to make sure that we have the support library downloaded.
+
+15
+00:01:37,000 --> 00:01:43,000
+Click on the little Android icon with the arrow here. Click on SDK Tools.
+
+16
+00:01:43,000 --> 00:01:49,000
+You can see that we have the Android Support Library, so we are ready to go.
+
+17
+00:01:49,000 --> 00:01:56,000
+If not, you should check the mark to download it. Next, we need to tell Android that we are going to be
+
+18
+00:01:56,000 --> 00:02:04,000
+using this library. To do that, we will modify the build.gradle file under app.
+
+19
+00:02:04,000 --> 00:02:12,000
+Add a new session called dependencies. Inside there we will add androidtestCompile and then
+
+20
+00:02:12,000 --> 00:02:25,000
+com.android.support.test.espresso:espresso-core:2.2.1. What does this mean?
+
+21
+00:02:25,000 --> 00:02:30,000
+AndroidTestCompile means that our test will need this dependency.
+
+22
+00:02:30,000 --> 00:02:36,000
+The string after it tells Android which exact dependency. It is from the group
+
+23
+00:02:36,000 --> 00:02:47,000
+com.android.support.test.espresso, and then the module, espresso-core; 2.2.1 is the version number.
+
+24
+00:02:47,000 --> 00:02:56,000
+We need to add one more thing. Inside the Android block, add testInstrumentationRunner,
+
+25
+00:02:56,000 --> 00:03:08,000
+then 'android.support.test.runner.AndroidJUnitRunner'. This is the instrumentation runner for Espresso.
+
+26
+00:03:08,000 --> 00:03:17,000
+Finally, we will need to change our minSdkVersion from 1 to 8. This is the minimum SDK version that we can
+
+27
+00:03:17,000 --> 00:03:27,000
+use Espresso with. With that, you can click on the blue Sync Now link for Android to update its dependencies.
+
+28
+00:03:27,000 --> 00:03:32,000
+Now that we have our dependencies set up, let's actually add a test.
+
+29
+00:03:32,000 --> 00:03:37,000
+To do that, we will need to add a new folder called androidTest.
+
+30
+00:03:37,000 --> 00:03:43,000
+Add it under the level src under app. Inside that, add a java folder.
+
+31
+00:03:43,000 --> 00:03:51,000
+Notice that the icon is screen. This means that Android Studio recognizes it as a test source folder.
+
+32
+00:03:51,000 --> 00:04:01,000
+Now go to MainActivity, and select Navigate Test. Android Studio will give us a choice to create a new test.
+
+33
+00:04:01,000 --> 00:04:08,000
+Let's choose that. Select JUnit4, and click OK. We're going to put a test in the directory that we just
+
+34
+00:04:08,000 --> 00:04:18,000
+created, app/src/androidTest/java, etc. To mark this as a test, we will use annotations.
+
+35
+00:04:18,000 --> 00:04:30,000
+First, annotate the class with @RunWith AndroidJUnit4.class. Next, we are going to add an Android test rule.
+
+36
+00:04:30,000 --> 00:04:37,000
+With this rule, Espresso will automatically launch our activity before each test method.
+
+37
+00:04:37,000 --> 00:04:41,000
+Right now we don't have any test methods yet, so let's add one.
+
+38
+00:04:41,000 --> 00:04:46,000
+We make a test method by writing a method and then annotating it with test.
+
+39
+00:04:46,000 --> 00:04:53,000
+Let's call it bye. Finally, after we did all the scaffolding, we can actually write our test.
+
+40
+00:04:53,000 --> 00:05:00,000
+We want to first verify that the TextView with the ID greeting is displaying Hello World.
+
+41
+00:05:00,000 --> 00:05:06,000
+To verify the initial value of our TextView, we will use onView withId to locate the view.
+
+42
+00:05:06,000 --> 00:05:12,000
+We are telling Espresso that we want to find this view, which has the ID greeting.
+
+43
+00:05:12,000 --> 00:05:24,000
+Once the view is found, we can do some verification. Add .check matches withText R.string.hello_world.
+
+44
+00:05:24,000 --> 00:05:32,000
+This tells Espresso to go ahead and verify that this view contains the text as defined in our strings.xml file.
+
+45
+00:05:32,000 --> 00:05:38,000
+It is better to check the string this way rather than hard coding the value hello world because if we want to
+
+46
+00:05:38,000 --> 00:05:46,000
+internationalize our app, this will automatically load the right string out of the proper resource folder.
+
+47
+00:05:46,000 --> 00:05:54,000
+Let's run this test. Right-click on MainActivityTest, and choose Create MainActivityTest.
+
+48
+00:05:54,000 --> 00:06:01,000
+This lets us create a new run configuration. Click OK, and then click the green triangle to deploy.
+
+49
+00:06:01,000 --> 00:06:07,000
+Android launched the app, verified the TextView, and then finishes the app.
+
+50
+00:06:07,000 --> 00:06:14,000
+Because it is done by a computer, it is super fast. We know that the test passed because you can see it on
+
+51
+00:06:14,000 --> 00:06:21,000
+the lower-left corner. There's a green circle that says OK next to the word Test Result.
+
+52
+00:06:21,000 --> 00:06:25,000
+Now that we know that we can run this test and it passed, let's add some more actions.
+
+53
+00:06:25,000 --> 00:06:32,000
+After we verify the initial state, we are going to open the action bar menu so that we can click on Say bye!
+
+54
+00:06:32,000 --> 00:06:40,000
+To do that, use the function openActionBarOverflowOrOptionsMenu, which takes a context.
+
+55
+00:06:40,000 --> 00:06:49,000
+We can get that context from the InstrumentationRegistry.getTargetContext.
+
+56
+00:06:49,000 --> 00:07:01,000
+This opens our menu. After that, we will click on the item that says Say bye, OnView with text R.string.say_bye.
+
+57
+00:07:01,000 --> 00:07:06,000
+Notice that I'm using the same withText when I was doing verification.
+
+58
+00:07:06,000 --> 00:07:11,000
+We can use the same matcher in verification and in also locating the view.
+
+59
+00:07:11,000 --> 00:07:18,000
+Once we've found the view that says say bye, we are going to click on it, .perform click.
+
+60
+00:07:18,000 --> 00:07:23,000
+Afterwards, we are going to verify that the TextView is changed to say bye.
+
+61
+00:07:23,000 --> 00:07:30,000
+Copy and paste the first line when we are looking for the greeting, and then change the string to bye.
+
+62
+00:07:30,000 --> 00:07:38,000
+Let's deploy and take a look. Here we go. We ran the whole test and verified that everything works.
+
+63
+00:07:38,000 --> 00:07:43,000
+Again, it is so fast that you can barely see the menu item expanding.
+
+64
+00:07:43,000 --> 00:07:48,000
+This is the advantage of writing automated testing. The machine can run it faster than you and also exactly
+
+65
+00:07:48,000 --> 00:07:55,000
+the same way every time. If you write tests along the way when you write your app, you can make sure that
+
+66
+00:07:55,000 --> 00:08:03,000
+you don't have any regressions, meaning that as you add new functionalities, the old functionalities are not broken.
+
+67
+00:08:03,000 --> 00:08:08,000
+In summary, there are two things you need to do to write Espresso tests.
+
+68
+00:08:08,000 --> 00:08:15,000
+First, you need to add the Espresso dependency in your app/build.gradle file.
+
+69
+00:08:15,000 --> 00:08:23,000
+Then you need to add a test to the androidTest/src/java directory.
+
+70
+00:08:23,000 --> 00:08:33,000
+In your test, tag the class with RunWith AndroidJUnit4, and then use the ActivityTestRule for Espresso to
+
+71
+00:08:33,000 --> 00:08:40,000
+launch your activity for every single test method. To make a test method, use the tag Test.
+
+72
+00:08:40,000 --> 00:59:00,000
+Inside your test, you can ask Espresso to find the view and then perform actions on it, or verify a state.
+

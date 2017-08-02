@@ -1,0 +1,76 @@
+1
+00:00:00,000 --> 00:00:10,000
+Congratulations! You have imported the Hello World app and added many functionalities to it.
+
+2
+00:00:10,000 --> 00:00:19,000
+You have added drawables, dimens, style, menu, and test. Now it's time for you to write your own app.
+
+3
+00:00:19,000 --> 00:00:27,000
+Let me show you how to create an app in Android Studio. Go to File, click New, New Project.
+
+4
+00:00:27,000 --> 00:00:32,000
+Here you are choosing the application name and the package name.
+
+5
+00:00:32,000 --> 00:00:40,000
+I'm going to call my app Awesome. I own the domain sqisland.com, so I put that in my Company Domain.
+
+6
+00:00:40,000 --> 00:00:47,000
+Android will pick a package name for me automatically. The project location is where you want to store this
+
+7
+00:00:47,000 --> 00:00:53,000
+project on disk. Choose a location that you can find later. Next, we need to decide a minimum SDK.
+
+8
+00:00:53,000 --> 00:01:00,000
+This will affect how many devices can run your app. Click on Help me choose to get a better idea.
+
+9
+00:01:00,000 --> 00:01:05,000
+This is the percentage of devices that you'll be able to target it you select the corresponding level.
+
+10
+00:01:05,000 --> 00:01:14,000
+As of November 2015, API level 16 Jelly Bean is a good choice. Next, we will add an activity to our app.
+
+11
+00:01:14,000 --> 00:01:19,000
+Choose the Blank Activity. Finally, give a name to your activity.
+
+12
+00:01:19,000 --> 00:01:25,000
+MainActivity is fine. You can leave the rest of the parameters as the default.
+
+13
+00:01:25,000 --> 00:01:34,000
+First, go to the left tab and select Project view. This reflects the directory structure as on disk,
+
+14
+00:01:34,000 --> 00:01:41,000
+and it's a little bit easier to understand. Next, expand the app, and take a look at what is generated.
+
+15
+00:01:41,000 --> 00:01:48,000
+This should be pretty familiar to you by now. Just like Hello World, we have a MainActivity, and in the res
+
+16
+00:01:48,000 --> 00:01:53,000
+folder we see the various mipmap directories for the launcher icon.
+
+17
+00:01:53,000 --> 00:02:01,000
+If you go into values, you will see that we have strings and also dimens.
+
+18
+00:02:01,000 --> 00:02:06,000
+We have covered that in the Hello World app. With the Hello World app, you have a really good foundation to
+
+19
+00:02:06,000 --> 00:59:00,000
+go ahead and write your own awesome app.
+

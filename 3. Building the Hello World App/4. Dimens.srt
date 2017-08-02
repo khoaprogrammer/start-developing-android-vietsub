@@ -1,0 +1,240 @@
+1
+00:00:02,000 --> 00:00:07,000
+We have seen resource folders when we were adding the launcher icon to our app.
+
+2
+00:00:07,000 --> 00:00:14,000
+In that case, we were using the type mipmap and providing different files depending on screen density.
+
+3
+00:00:14,000 --> 00:00:21,000
+Android has many other resource folder combinations. Here is a subset of them.
+
+4
+00:00:21,000 --> 00:00:29,000
+I am going to show you another example of changing the margin of our app depending on the size of the screen.
+
+5
+00:00:29,000 --> 00:00:39,000
+In this case, we are going to use the type values and provide different files depending on the width of the screen.
+
+6
+00:00:39,000 --> 00:00:44,000
+Here is our Hello World app. There are two Hello Worlds in the app.
+
+7
+00:00:44,000 --> 00:00:49,000
+The first one is in the title bar. That is the activity label.
+
+8
+00:00:49,000 --> 00:00:55,000
+The one below it is displayed by the TextView. We are going to add some margin to this TextView to give it
+
+9
+00:00:55,000 --> 00:01:07,000
+some breathing room. Let's try the editor actually first. Open activity_main.xml, and add the attribute layout_margin.
+
+10
+00:01:07,000 --> 00:01:18,000
+We are going to put in a value directly. Let's say 16dp, deploy, and see how it looks like.
+
+11
+00:01:18,000 --> 00:01:26,000
+Now we have some breathing room in our TextView. Next, we are going to extract that into a variable.
+
+12
+00:01:26,000 --> 00:01:35,000
+Create a new file called dimens.xml inside the values folder. Click on the values folder, right-click,
+
+13
+00:01:35,000 --> 00:01:45,000
+choose New, and choose Values resource file. Like I said, we are going to call it dimens.xml.
+
+14
+00:01:45,000 --> 00:01:54,000
+We can go ahead and add the file to Git and ask Android Studio to always remember to do that whenever we add new files.
+
+15
+00:01:54,000 --> 00:02:05,000
+Now we are going to add the variable activity_margin. It is of type dimen, and the name is going to be activity_margin.
+
+16
+00:02:05,000 --> 00:02:14,000
+We are going to put the same value 16 here. Once we have created this variable, we can use it in the layout.xml.
+
+17
+00:02:14,000 --> 00:02:25,000
+Replace the hardcoded value with the @ annotation. In this case, it's @dimen/activity_margin.
+
+18
+00:02:25,000 --> 00:02:31,000
+If we deploy the app, it will look exactly the same. There are multiple reasons why you may want to put it
+
+19
+00:02:31,000 --> 00:02:38,000
+in a variable. Let's say we want a different margin for horizontal and vertical.
+
+20
+00:02:38,000 --> 00:02:45,000
+In Android, you specify the margin by left, right, top, and bottom.
+
+21
+00:02:45,000 --> 00:02:50,000
+Using a variable, we can have the same value for two different attributes.
+
+22
+00:02:50,000 --> 00:02:57,000
+Let me show you how. Go back to the dimens file, and we are going to split this variable into two.
+
+23
+00:02:57,000 --> 00:03:04,000
+Press Command+D to duplicate the line. Then we are going to change one of them to be called horizontal
+
+24
+00:03:04,000 --> 00:03:13,000
+margin and the other one vertical margin. Next, we will go back to the layout.xml and use these new variables.
+
+25
+00:03:13,000 --> 00:03:23,000
+First, we will define the top and bottom ones. Once again, press Command+D to duplicate a line, and then we
+
+26
+00:03:23,000 --> 00:03:33,000
+will define the horizontal_margin. That is done by the Left and the Right.
+
+27
+00:03:33,000 --> 00:03:39,000
+Again, if we deploy, the app is going to look exactly the same.
+
+28
+00:03:39,000 --> 00:03:46,000
+That was the first reason why we may want to extract some constants into a variable so that we can use them multiple times.
+
+29
+00:03:46,000 --> 00:03:54,000
+This allows us to change the value in one single place and have it propagated all over the app.
+
+30
+00:03:54,000 --> 00:04:00,000
+The second reason is that we may want to have a different dimension depending on how big the screen is.
+
+31
+00:04:00,000 --> 00:04:06,000
+For an example, on a 10-inch tablet we may want to give it more breathing room.
+
+32
+00:04:06,000 --> 00:04:14,000
+If you look back at the project structure, you can see that the dimens.xml file is under the folder values.
+
+33
+00:04:14,000 --> 00:04:22,000
+This is the default folder. We can create another folder for devices that are 820dp or wider.
+
+34
+00:04:22,000 --> 00:04:32,000
+How do we do that? Click on the res folder, right-click, and create a New Android resource directory.
+
+35
+00:04:32,000 --> 00:04:38,000
+This interface allows us to change the resource type and also change the qualifiers.
+
+36
+00:04:38,000 --> 00:04:45,000
+Value is already selected, so we can just leave it like that. Click on Screen Width; then click on the arrow.
+
+37
+00:04:45,000 --> 00:04:54,000
+Now we are given a field to change the value. Type 820. The directory name changes as you type the screen width.
+
+38
+00:04:54,000 --> 00:05:05,000
+Press OK. Now we have a new directory called values-w820dp. Let's copy dimens.xml into it.
+
+39
+00:05:05,000 --> 00:05:17,000
+Click on dimens.xml, Ctrl+C, go to the New Folder, Ctrl+V. Now let's say we want to give more horizontal
+
+40
+00:05:17,000 --> 00:05:25,000
+margin for our big screen. Let's bump that up to 64. So how does this work?
+
+41
+00:05:25,000 --> 00:05:33,000
+When Android loads your app, it's going to look into different folders depending on the configuration of the device.
+
+42
+00:05:33,000 --> 00:05:42,000
+If it is 820dp or wider, it is going to load the dimens.xml in this folder and use 64dp as the horizontal
+
+43
+00:05:42,000 --> 00:05:52,000
+margin; otherwise, it is going to use the default dimens.xml, which has 16 as the horizontal margin.
+
+44
+00:05:52,000 --> 00:05:59,000
+To test this, we will need a device that's 820dp or wider. Let's create another emulator.
+
+45
+00:05:59,000 --> 00:06:05,000
+Click on the purple emulator icon, and then Create Virtual Device.
+
+46
+00:06:05,000 --> 00:06:11,000
+On the left, you can see different categories. Click on Tablet. We are going to choose a 10-inch tablet.
+
+47
+00:06:11,000 --> 00:06:18,000
+For the API level, go ahead and choose 23. On this screen, we can configure this emulator a bit more.
+
+48
+00:06:18,000 --> 00:06:25,000
+Let's change the name. We will call it Tablet API 23. I'm going to change the scale because my computer
+
+49
+00:06:25,000 --> 00:06:32,000
+screen is quite small. I'm going to choose 2dp on device = 1px on screen.
+
+50
+00:06:32,000 --> 00:06:36,000
+You may or may not need to do that depending on how big your computer screen is.
+
+51
+00:06:36,000 --> 00:06:46,000
+Click Finish. Now we can launch the emulator. The reason why I asked you to create a 10-inch tablet is that
+
+52
+00:06:46,000 --> 00:06:57,000
+the width of the device is less than 820dp in portrait mode, but more than 820dp on landscape mode.
+
+53
+00:06:57,000 --> 00:07:10,000
+This way we can see both of our dimens values. Let's deploy the app in portrait mode and see how it looks like.
+
+54
+00:07:10,000 --> 00:07:17,000
+The text looks really small because I'm running it at 2dp on device equaling 1px on screen.
+
+55
+00:07:17,000 --> 00:07:23,000
+Now I'm going to rotate the device, and we will see if the margin changes.
+
+56
+00:07:23,000 --> 00:07:31,000
+If you are on a Mac, press fn + ctrl + F12 to rotate your emulator.
+
+57
+00:07:31,000 --> 00:07:35,000
+As you can see, the horizontal margin is larger when the tablet is in landscape mode.
+
+58
+00:07:35,000 --> 00:07:43,000
+This is because the width of the device for landscape mode is wider than 820dp.
+
+59
+00:07:43,000 --> 00:07:49,000
+In summary, if you extract constants into resource variables, you can put them in different resource folders
+
+60
+00:07:49,000 --> 00:59:00,000
+so that Android will use different versions of them depending on the device configuration.
+

@@ -1,0 +1,116 @@
+1
+00:00:03,000 --> 00:00:09,000
+I hope that this course has given you a good foundation to continue to learn about Android.
+
+2
+00:00:09,000 --> 00:00:14,000
+This is just the beginning. There is a lot more to learn in Android.
+
+3
+00:00:14,000 --> 00:00:23,000
+Here are a few areas that you may want to explore next: Navigation, UI, compatibility, background,
+
+4
+00:00:23,000 --> 00:00:27,000
+persistence, and testing.
+
+5
+00:00:27,000 --> 00:00:33,000
+Navigation is the way that we move from one part of the Android app to another.
+
+6
+00:00:33,000 --> 00:00:39,000
+In our Hello World example, we only have one activity, so we didn't really need to go anywhere.
+
+7
+00:00:39,000 --> 00:00:45,000
+Most apps will have more than one activity, and that will be your next step, to learn how to coordinate
+
+8
+00:00:45,000 --> 00:00:52,000
+between the different activities and how to move from one to the other using intents.
+
+9
+00:00:52,000 --> 00:00:57,000
+Next, you may want to learn about UI. In Hello World we used TextView.
+
+10
+00:00:57,000 --> 00:01:01,000
+There are many other different widgets that you may want to use.
+
+11
+00:01:01,000 --> 00:01:07,000
+If you want to put multiple of them on screen, you would like to use a layout such as linear layout,
+
+12
+00:01:07,000 --> 00:01:15,000
+relative layout, and frame layout. Another way to put multiple things on screen is to use ListView or RecyclerView.
+
+13
+00:01:15,000 --> 00:01:21,000
+Fragments are kind of like mini activities, and it is used in many different parts of Android.
+
+14
+00:01:21,000 --> 00:01:26,000
+Compatibility refers to the fact that there are many different kinds of Android devices out there,
+
+15
+00:01:26,000 --> 00:01:34,000
+and you will need to figure out how to support them. For example, there may be phones, which are a little
+
+16
+00:01:34,000 --> 00:01:39,000
+bit smaller than tablets, or some devices are denser than the others.
+
+17
+00:01:39,000 --> 00:01:47,000
+You have already gotten a taste of that in Hello World when we were defining different dimensions and different styles.
+
+18
+00:01:47,000 --> 00:01:55,000
+Another big topic is background. Everything you have written in your MainActivity right now runs on the UI thread.
+
+19
+00:01:55,000 --> 00:02:02,000
+This thread corresponds to user actions, and you do not want to make it busy by having long-running functions
+
+20
+00:02:02,000 --> 00:02:08,000
+such as going off to the internet to fetch some data. Instead, you should run that in a background thread.
+
+21
+00:02:08,000 --> 00:02:14,000
+Persistence means that you want to store some data so that it is saved even when the user shuts down the
+
+22
+00:02:14,000 --> 00:02:21,000
+phone and then turns it back on. The first tool in your persistence toolbox is SharedPreferences.
+
+23
+00:02:21,000 --> 00:02:27,000
+Last, but not least, testing. You have had a little taste of Espresso testing in Hello World.
+
+24
+00:02:27,000 --> 00:02:34,000
+To write robust apps, you will want to learn how to write tests alongside your app.
+
+25
+00:02:34,000 --> 00:02:37,000
+Unit testing and Espresso are the two major ways.
+
+26
+00:02:37,000 --> 00:02:44,000
+The world of Android changes very quickly, so it's a little bit of a futile exercise if I list the resources
+
+27
+00:02:44,000 --> 00:02:51,000
+you can use to learn about all these topics. I have collected them in the ReadMe file of the Hello World
+
+28
+00:02:51,000 --> 00:03:03,000
+repository at github.com/chiuki/Android-hello-world. Go there and click on the various classes to learn more.
+
+29
+00:03:03,000 --> 00:59:00,000
+Happy coding.
+

@@ -1,0 +1,148 @@
+1
+00:00:02,000 --> 00:00:09,000
+An Android project has a lot of files and folders. Many of them specify the structure and dependencies for
+
+2
+00:00:09,000 --> 00:00:17,000
+the build to assemble and compile the app. We will not go into them right now.
+
+3
+00:00:17,000 --> 00:00:25,000
+The code for your Android app lives in the app folder. If you dive into the source folder, you can see that
+
+4
+00:00:25,000 --> 00:00:34,000
+there is a file called AndroidManifest.xml. This defines the overall structure of your Android app.
+
+5
+00:00:34,000 --> 00:00:41,000
+Take a look at the application tag. Inside it has an attribute called android:label.
+
+6
+00:00:41,000 --> 00:00:48,000
+At this moment you can see that it says Hello world, but if you click on it, you can see that the actual
+
+7
+00:00:48,000 --> 00:00:59,000
+value of android:label is @string/app_name. The reason why we saw Hello World earlier is because Android
+
+8
+00:00:59,000 --> 00:01:05,000
+Studio, by default, performs code folding for you, meaning that it's going to replace some of the variables
+
+9
+00:01:05,000 --> 00:01:14,000
+with these values so that you can read it more easily. Inside application, we have a tag called activity.
+
+10
+00:01:14,000 --> 00:01:23,000
+As I explained in the introduction module, an Android application consists of multiple screens or activities.
+
+11
+00:01:23,000 --> 00:01:28,000
+For the Hello World app, we have one activity called MainActivity.
+
+12
+00:01:28,000 --> 00:01:36,000
+Again, activity has a label. This label defines what is displayed on the title bar.
+
+13
+00:01:36,000 --> 00:01:41,000
+Inside the activity tag we see an intent-filter. It has the action MAIN and category LAUNCHER.
+
+14
+00:01:41,000 --> 00:01:47,000
+This tells Android our MainActivity is the one that we want to show in the launcher.
+
+15
+00:01:47,000 --> 00:01:55,000
+What is the launcher? The launcher is how Android shows apps that are installed on the device.
+
+16
+00:01:55,000 --> 00:02:01,000
+You can see that our app is listed under Hello World. That is the application label.
+
+17
+00:02:01,000 --> 00:02:08,000
+One way we can navigate inside Android Studio is using Command+click.
+
+18
+00:02:08,000 --> 00:02:16,000
+For instance, if we want to know where is string app name defined, we can do a Command+click on it.
+
+19
+00:02:16,000 --> 00:02:24,000
+This will move us directly into the strings.xml file. If we want to locate this file within our folders,
+
+20
+00:02:24,000 --> 00:02:36,000
+go and click on this target icon. Here we can see that strings.xml goes under app/src/main/res/values.
+
+21
+00:02:36,000 --> 00:02:45,000
+This is where the variable app name is defined. Let's go back to the manifest and take a look at MainActivity.
+
+22
+00:02:45,000 --> 00:02:54,000
+In MainActivity we have the onCreate function. Android calls this when the activity is created.
+
+23
+00:02:54,000 --> 00:03:01,000
+Inside onCreate we call the function setContentView. This tells Android what to display.
+
+24
+00:03:01,000 --> 00:03:08,000
+We give it R.layout/activity_main. Let's take a look at this file.
+
+25
+00:03:08,000 --> 00:03:14,000
+This is a graphical representation of the layout that Android's going to show.
+
+26
+00:03:14,000 --> 00:03:21,000
+If you want to look at the code, click on the Text tab. Here we can see that it's an XML file.
+
+27
+00:03:21,000 --> 00:03:28,000
+The root tag is a TextView. TextView is used to display text. What text?
+
+28
+00:03:28,000 --> 00:03:36,000
+Look into the attribute android:text. Again, code folding shows us that it says Hello world.
+
+29
+00:03:36,000 --> 00:03:44,000
+If we click on it, we can see that the string/hello_world is defined once again in the strings.xml file.
+
+30
+00:03:44,000 --> 00:03:52,000
+Strings.xml allows us to put all the string in a central location for easy translation.
+
+31
+00:03:52,000 --> 00:03:58,000
+This allows us to provide other values for these strings for different languages.
+
+32
+00:03:58,000 --> 00:04:07,000
+In summary, you need four files to make a basic Android app. AndroidManifest.xml specifies the structure of your app.
+
+33
+00:04:07,000 --> 00:04:13,000
+Inside you will have a MainActivity, the main screen of your app.
+
+34
+00:04:13,000 --> 00:04:19,000
+In order to tell Android what to show in MainActivity, we have a layout of XML file.
+
+35
+00:04:19,000 --> 00:04:27,000
+Through our app, whenever we need to show text, we put them in strings.xml file.
+
+36
+00:04:27,000 --> 00:04:34,000
+This allows easy translation. Now that we understand the basic structure of an Android project,
+
+37
+00:04:34,000 --> 00:59:00,000
+let's make it more interesting by adding a launcher icon.
+

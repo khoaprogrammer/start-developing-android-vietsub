@@ -1,0 +1,252 @@
+1
+00:00:02,000 --> 00:00:08,000
+Drawable is a general concept for a graphic that Android draws.
+
+2
+00:00:08,000 --> 00:00:17,000
+Bitmap is a type of drawable. We provide that as a png, jpg, or gif file.
+
+3
+00:00:17,000 --> 00:00:25,000
+When we do that, we need to pay attention to screen densities. The same physical area may be displayed by
+
+4
+00:00:25,000 --> 00:00:32,000
+different number of pixels. As a result, it is dangerous to use pixel as a unit when we try to specify how
+
+5
+00:00:32,000 --> 00:00:43,000
+big our images are. For example, here we have two displays. The one on the left is a normal density device.
+
+6
+00:00:43,000 --> 00:00:49,000
+The one on the right is a double density device. As you can see by the arrow in the middle,
+
+7
+00:00:49,000 --> 00:00:59,000
+the same physical length corresponds to one pixel to the device on the left and two pixels to the device on the right.
+
+8
+00:00:59,000 --> 00:01:05,000
+In Android, we would like to specify pixels by their physical size.
+
+9
+00:01:05,000 --> 00:01:15,000
+This is why we use dp or Density-Independent Pixel. One dp gets translated into 1px, or 1 pixel for a normal
+
+10
+00:01:15,000 --> 00:01:24,000
+density device, and 1dp translates to 2px, or 2 pixels for a double density device.
+
+11
+00:01:24,000 --> 00:01:30,000
+In Android, you can package different images into your app for different screen densities.
+
+12
+00:01:30,000 --> 00:01:37,000
+This is done by resource folders. The resource folders all have the prefix drawable.
+
+13
+00:01:37,000 --> 00:01:46,000
+After that, you can see things like mdpi, hdpi, etc. Mdpi is the medium density, which corresponds to your
+
+14
+00:01:46,000 --> 00:01:55,000
+normal density of 1. Hdpi corresponds to density 1.5. As you can see from this table, the high-resolution
+
+15
+00:01:55,000 --> 00:02:03,000
+devices are actually quite dense. Now that we understand drawables and screen densities, let's go ahead and
+
+16
+00:02:03,000 --> 00:02:07,000
+add a launcher icon to our Hello World app.
+
+17
+00:02:07,000 --> 00:02:16,000
+Launcher icon is special in Android because your app icon is displayed slightly larger when it is in the launcher.
+
+18
+00:02:16,000 --> 00:02:22,000
+For that reason, you need to put them in the midmap folder rather than the drawable folder.
+
+19
+00:02:22,000 --> 00:02:26,000
+Let's see how we do that.
+
+20
+00:02:26,000 --> 00:02:32,000
+Android Studio has a built-in tool to generate images for different screen densities.
+
+21
+00:02:32,000 --> 00:02:37,000
+Let's use that to change the launcher icon of our Hello World app.
+
+22
+00:02:37,000 --> 00:02:46,000
+Right now you can see that the Android icon is displayed. That is because we did not specify any app icon.
+
+23
+00:02:46,000 --> 00:02:55,000
+To generate our drawable, navigate to the res folder. Click on it; then right-click.
+
+24
+00:02:55,000 --> 00:03:04,000
+Select New, Image Asset. Here you can choose the different Asset Type.
+
+25
+00:03:04,000 --> 00:03:09,000
+We are going to choose Launcher Icon. Next, you are given three choices.
+
+26
+00:03:09,000 --> 00:03:15,000
+You can either provide your own Image, choose a Clipart, or use the Text.
+
+27
+00:03:15,000 --> 00:03:22,000
+I'm going to show you the ClipArt option. Click on the Choose button.
+
+28
+00:03:22,000 --> 00:03:31,000
+Here is a selection of different images that you can use. Since this is a Hello World app, let's choose the world icon.
+
+29
+00:03:31,000 --> 00:03:39,000
+After choosing the image, you can also change the padding, scaling, and also choose a background.
+
+30
+00:03:39,000 --> 00:03:49,000
+Maybe you want it to have a circle or a square. I like it just with nothing.
+
+31
+00:03:49,000 --> 00:03:54,000
+The other thing you can customize is the background color and the foreground color.
+
+32
+00:03:54,000 --> 00:03:58,000
+Since I don't have a background, I don't need to change anything for the background color.
+
+33
+00:03:58,000 --> 00:04:06,000
+I do want to change the foreground to be green though. The final field is Resource name.
+
+34
+00:04:06,000 --> 00:04:15,000
+I'm going to leave it as ic_launcher. With all that, I can click Next, and it will give me a preview.
+
+35
+00:04:15,000 --> 00:04:22,000
+This looks good to me. Finish. We got a few images that are generated.
+
+36
+00:04:22,000 --> 00:04:29,000
+Go ahead and expand the res folder. Here you can see mipmap directories for different densities.
+
+37
+00:04:29,000 --> 00:04:38,000
+For instance, if we look at the mdpi folder, we can see that an image called ic_launcher is generated.
+
+38
+00:04:38,000 --> 00:04:44,000
+Double-click on that. Here is a preview of the image directly in Android Studio.
+
+39
+00:04:44,000 --> 00:04:50,000
+You can look at the top-right corner and see the size. Let's look at another directory.
+
+40
+00:04:50,000 --> 00:04:57,000
+Remember I told you that hdpi is the 1.5 density. How big do you think this image is going to be?
+
+41
+00:04:57,000 --> 00:05:10,000
+Let's check it out. Well, it's 72 x 72, and indeed 48 x 1.5 is 72.
+
+42
+00:05:10,000 --> 00:05:15,000
+This is a very handy tool because you don't have to generate all these images of different sizes yourself.
+
+43
+00:05:15,000 --> 00:05:21,000
+You can just provide a single image, choose a clipart, or choose text.
+
+44
+00:05:21,000 --> 00:05:27,000
+There's one more image that gets generated, ic_launcher-web.png.
+
+45
+00:05:27,000 --> 00:05:34,000
+Let's take a look at it. It's the same icon, except that it's 512 x 512.
+
+46
+00:05:34,000 --> 00:05:38,000
+This is used when you want to upload the app to the Google Play store.
+
+47
+00:05:38,000 --> 00:05:44,000
+This high resolution is going to be displayed on the web page. After you have generated the icon, we need to
+
+48
+00:05:44,000 --> 00:05:55,000
+tell Android where to use it. For the launcher icon, we do that in the AndroidManifest.xml file.
+
+49
+00:05:55,000 --> 00:06:04,000
+Look for the application tag, and add an attribute called android:icon.
+
+50
+00:06:04,000 --> 00:06:08,000
+Since our icon is in the mipmap folder, we can point to it using @mipmap.
+
+51
+00:06:08,000 --> 00:06:17,000
+Then we add a slash, and then put in the name of the icon. Here Android Studio offers an auto complete.
+
+52
+00:06:17,000 --> 00:06:23,000
+Go ahead and take that. With that, we'll save the file and then deploy.
+
+53
+00:06:23,000 --> 00:06:30,000
+The app is deployed. Let's take a look at our launcher. Here we go.
+
+54
+00:06:30,000 --> 00:06:35,000
+Our Hello World app now has a custom icon.
+
+55
+00:06:35,000 --> 00:06:41,000
+Before we move on, it is good practice to save our progress. We are going to use the Git integration built
+
+56
+00:06:41,000 --> 00:06:47,000
+into Android Studio. This only works if you did git clone in the first step.
+
+57
+00:06:47,000 --> 00:06:53,000
+Before we do that, I'd like to move the web icon into a separate folder.
+
+58
+00:06:53,000 --> 00:07:00,000
+Go to the top level, click, and then right-click. Create a new directory.
+
+59
+00:07:00,000 --> 00:07:07,000
+Let's call it art. We are going to move the web icon there since it is not really a part of the app.
+
+60
+00:07:07,000 --> 00:07:15,000
+Now we are ready to add our files to Git. Go to the top level, click, and then right-click.
+
+61
+00:07:15,000 --> 00:07:22,000
+Scroll down to Git, and then choose Add. Now we are ready to commit.
+
+62
+00:07:22,000 --> 00:07:30,000
+Go to the VCS menu; choose Commit Changes. You can take a look at the files that are going to be committed.
+
+63
+00:07:30,000 --> 00:59:00,000
+Add a Commit Message, and then hit Commit. Now that we have saved our progress, let's move on to the next enhancement.
+

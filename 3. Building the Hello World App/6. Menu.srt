@@ -1,0 +1,224 @@
+1
+00:00:02,000 --> 00:00:07,000
+Right now our Hello World app doesn't do much. It displays Hello world.
+
+2
+00:00:07,000 --> 00:00:15,000
+Let's add something so that we can interact with it. Let's add something to action bar so that you can click
+
+3
+00:00:15,000 --> 00:00:21,000
+on it and choose a menu item. To do that, we first need to create a menu.xml.
+
+4
+00:00:21,000 --> 00:00:30,000
+Go to the res folder, and create a new directory called menu. Next, we'll create a file under menu called
+
+5
+00:00:30,000 --> 00:00:36,000
+activity_main because we are going to use this menu in our MainActivity.
+
+6
+00:00:36,000 --> 00:00:42,000
+Android Studio automatically created the top note menu for you.
+
+7
+00:00:42,000 --> 00:00:50,000
+We are going to add an item inside it. We will give it an id/action_bye because we are going to say bye when
+
+8
+00:00:50,000 --> 00:00:55,000
+the user clicks on this menu item. We will also need to give it something to display.
+
+9
+00:00:55,000 --> 00:01:01,000
+We are going to put the string/say_bye as the title. Right now the string/say_bye doesn't exist yet.
+
+10
+00:01:01,000 --> 00:01:09,000
+Let's create it. Put your mouse over @string/say_bye and then Option+Return.
+
+11
+00:01:09,000 --> 00:01:17,000
+Android Studio will give us a choice to create the string. Now we can type the value we want, Say bye!
+
+12
+00:01:17,000 --> 00:01:25,000
+Now we have the menu.xml. Let's use that in our MainActivity. We will need to override the onCreate options
+
+13
+00:01:25,000 --> 00:01:32,000
+menu function in order to display this menu. You can type that out yourself, or you can ask Android Studio
+
+14
+00:01:32,000 --> 00:01:37,000
+to create that function for you. Go to Code, Override Methods.
+
+15
+00:01:37,000 --> 00:01:44,000
+It's a very long list of functions, so you can start typing for Android Studio to jump to the one you want to override.
+
+16
+00:01:44,000 --> 00:01:50,000
+The one we want is onCreateOptionsMenu. Android Studio will fill in the default for you, which is to call
+
+17
+00:01:50,000 --> 00:01:58,000
+the super function. Let's replace that with our own logic. We would like to inflate the menu that we just created.
+
+18
+00:01:58,000 --> 00:02:02,000
+To do that, you need to getMenuInflater, and then call inflate.
+
+19
+00:02:02,000 --> 00:02:11,000
+The first parameter is the XML that you created, so R.menu.activity_main.
+
+20
+00:02:11,000 --> 00:02:16,000
+The next argument is a menu object, which is given to you in the function signature.
+
+21
+00:02:16,000 --> 00:02:23,000
+After that, we will need to return true to tell Android that yes we have taken care of the menu here.
+
+22
+00:02:23,000 --> 00:02:28,000
+Let's deploy and take a look. There are three dots on the top-right corner.
+
+23
+00:02:28,000 --> 00:02:34,000
+That is where our menu is. If you click on it, it says Say bye!
+
+24
+00:02:34,000 --> 00:02:39,000
+Go ahead and click on it. The menu disappears, but then nothing happens.
+
+25
+00:02:39,000 --> 00:02:45,000
+Let's hook it up so that it actually does something. Go back to MainActivity, and we will override another function.
+
+26
+00:02:45,000 --> 00:02:54,000
+This time we will override onOptionsItemSelected. Once again, Android Studio will give us the default.
+
+27
+00:02:54,000 --> 00:02:56,000
+This time we're going to keep it, but add something in front of it.
+
+28
+00:02:56,000 --> 00:03:04,000
+We are going to check that if the item that's being clicked on is Say bye we're going to do something.
+
+29
+00:03:04,000 --> 00:03:09,000
+To do that, we can check the ID. The ID we have defined is action_bye.
+
+30
+00:03:09,000 --> 00:03:16,000
+We will change the string from Hello World to bye. After that, we'll return true to let Android know that
+
+31
+00:03:16,000 --> 00:03:22,000
+we have taken care of it. So how do we change the string? If you look back at our layout file, you can see
+
+32
+00:03:22,000 --> 00:03:27,000
+that we have a single text view, but right now we don't have a way to refer to it.
+
+33
+00:03:27,000 --> 00:03:35,000
+Let's add an ID to it. At the attribute android:id, and we're going to give it the id/greeting.
+
+34
+00:03:35,000 --> 00:03:43,000
+Now with an ID, we can change its value in our activity. To do that, we will need to locate this view using findViewByID.
+
+35
+00:03:43,000 --> 00:03:50,000
+What this does is to tell Android to look into that layout and find the view with this ID.
+
+36
+00:03:50,000 --> 00:03:57,000
+I'm casting it into a TextView because that is the type of the view that we have defined in the layout.
+
+37
+00:03:57,000 --> 00:04:01,000
+Android Studio is showing red right now because we have not imported TextView yet.
+
+38
+00:04:01,000 --> 00:04:07,000
+Go ahead and do that by pressing Option+Return. GreetingView is red because it has not been defined yet.
+
+39
+00:04:07,000 --> 00:04:16,000
+Let's define that as a field. Once again, Option+Return, we can select Create field greetingView,
+
+40
+00:04:16,000 --> 00:04:23,000
+and we will choose the type TextView. In general, Option+Return is very useful in Android Studio because
+
+41
+00:04:23,000 --> 00:04:27,000
+it's context sensitive and tries to suggest things that you may want to do.
+
+42
+00:04:27,000 --> 00:04:32,000
+Now that we have greetingView, let's change its value when the menu item is selected.
+
+43
+00:04:32,000 --> 00:04:42,000
+Go back to the onOptionsSelected function, and we're going to change the value of this TextView, greetingView.setText.
+
+44
+00:04:42,000 --> 00:04:51,000
+We are going to say bye this time, so let's type R.String.bye.
+
+45
+00:04:51,000 --> 00:04:57,000
+Again, bye has not been defined yet. You can use Option+Enter to define it just like before when we did it
+
+46
+00:04:57,000 --> 00:05:03,000
+in the XML, or you can navigate to the strings.xml and add it yourself.
+
+47
+00:05:03,000 --> 00:05:09,000
+Let's try that this time. To navigate to the strings.xml file, you can click on the menu on the left-hand
+
+48
+00:05:09,000 --> 00:05:18,000
+side, or you can use the keyboard shortcut Shift+Command+O. This will allow you to open the file name by
+
+49
+00:05:18,000 --> 00:05:29,000
+name, strings.xml. Let's add a new item with the ID bye. Press Command+D to duplicate the line hello_world,
+
+50
+00:05:29,000 --> 00:05:37,000
+change the name to bye, and the value to Goodbye. Now if you go back to MainActivity, R.string.bye is no longer read.
+
+51
+00:05:37,000 --> 00:05:44,000
+Let's deploy and try this out. Click on the three dots to show the menu, and then click on Say bye!
+
+52
+00:05:44,000 --> 00:05:54,000
+Look, the greeting has changed from Hello world to Goodbye! In summary, to add a menu to your action bar,
+
+53
+00:05:54,000 --> 00:06:03,000
+you need to define the menu in XML. In your menu item, define an ID so that you can refer to it and a title
+
+54
+00:06:03,000 --> 00:06:11,000
+so that you can show some text. Next, in your activity, override onCreateOptionsMenu to inflate this menu
+
+55
+00:06:11,000 --> 00:06:18,000
+so that Android will show it with your activity. You will also need to override onOptionsItemSelected so
+
+56
+00:06:18,000 --> 00:59:00,000
+that we can do something when the user selects this item.
+
