@@ -1,22 +1,22 @@
 1
 00:00:01,000 --> 00:00:07,000
-When you think of a desktop application, you probably think of it as a single unit.
+Khi bạn nghĩ đến một ứng trên desktop, bạn có thể nghĩ nó như một cái màn hình duy nhất.
 
-2
+2	
 00:00:07,000 --> 00:00:14,000
-You open the app and do various things in it. On Android, it is slightly different.
+Bạn mở ứng dụng và làm nhiều việc trong đó. Trong Android, nó hơi khác một chút.
 
 3
 00:00:14,000 --> 00:00:16,000
-Rather than a single unit,
+Thay vì là một cái màn hình duy nhất
 
 4
 00:00:16,000 --> 00:00:24,000
-it is better to think of an Android app as a collection of screens, or activity as they are called in Android.
+Thì bạn nên nghĩ đến ứng dụng Android như là một bộ sưu tập các màn hình hay còn gọi các Activity là tên gọi của chúng được gọi trong Android
 
 5
 00:00:24,000 --> 00:00:28,000
-An activity is very similar to a web page. We can think of a
+Một cái Activity cũng tương tự như một cái trang web. Chúng ta có thể nghĩ như là
 
 6
 00:00:28,000 --> 00:00:31,000
@@ -24,39 +24,39 @@ website as a collection of web pages,
 
 7
 00:00:31,000 --> 00:00:39,000
-and an Android app as a collection of activities. Let's go through an example.
+và một ứng dụng Android là tập hợp của các Activity lại với nhau. Chúng ta hãy đi đến một ví dụ như sau.
 
 8
 00:00:39,000 --> 00:00:48,000
-Here we are looking at the main page of the Twitter website. The equivalent in Android will be MainActivity.
+Ở đây, chúng ta đang thấy là trang chủ của trang web Twitter. 
 
 9
 00:00:48,000 --> 00:00:53,000
-On the Twitter main page, we can click on an avatar to see the user profile.
+Trên trang chủ Twitter, chúng ta có thể click vào ảnh đại diện để nhìn thấy thông tin người dùng.
 
 10
 00:00:53,000 --> 00:01:02,000
-On Android, we can do the same. What happens in that click? On the web, you are sent to a different page as
+Trong Android, chúng ta có thể làm điều tương tự. Điều gì sẽ sảy ra khi bạn click? Trên trang web, bạn sẽ được gửi đến một trang khác được
 
 11
 00:01:02,000 --> 00:01:13,000
-specified by the URL. On Android, you are sent to a different activity as specified by an intent.
+xác định bởi URL. Trong Android, bạn được gửi đến một cái Activity khác và được xác định vởi Intent.
 
 12
 00:01:13,000 --> 00:01:19,000
-On the web, links are not restricted to a single website; same for Android.
+Trên web, các đường Link không bị hạn trong một trang web đơn, tương tự trong Android
 
 13
 00:01:19,000 --> 00:01:26,000
-In fact, Android intents are more powerful than web links because the receiving activity can send data back
+Thực tế là, các Intent trong Android thì nó mạnh hơn các đường Link của web bởi vì chúng có thể gửi và nhận dữ liệu trả lại
 
 14
 00:01:26,000 --> 00:01:28,000
-to the original activity.
+tới Activity ban đầu.
 
 15
 00:01:28,000 --> 00:01:35,000
-For instance, when we click on the photo icon on the Twitter app, we are sent to the Gallery app.
+Ví dụ như là khi bạn click vào biểu tượng photo trên ứng dụng Twitter, chúng ta được chuyển đến ứng dụng Gallery(bộ sưu tập).
 
 16
 00:01:35,000 --> 00:01:41,000
@@ -64,17 +64,16 @@ We pick a photo in the Gallery app, which is then sent back to the Twitter app t
 
 17
 00:01:41,000 --> 00:01:46,000
-Activity is the basic building block in Android.
+Activity là một khối xây dựng cơ bản trong Android.
 
 18
 00:01:46,000 --> 00:01:52,000
-Together with intents, different Android apps can work seamlessly with each other, making the system very
+cùng với các Intent, các ứng dụng trong Android có thể làm việc một cách liền mạch với nhau, làm cho hệ thống trở nên
 
 19
 00:01:52,000 --> 00:01:55,000
-powerful and extensible.
+mạnh mẽ và tiện dụng hơn
 
 20
 00:01:55,000 --> 00:59:00,000
-With that, let's get set up to write our first Android app.
-
+Với điều đó, chúng ta hãy bắt đầu viết ứng dụng Android đầu tiên của chúng ta.
