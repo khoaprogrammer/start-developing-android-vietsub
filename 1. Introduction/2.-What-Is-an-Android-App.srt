@@ -20,7 +20,7 @@ Một cái Activity cũng tương tự như một cái trang web. Chúng ta có 
 
 6
 00:00:28,000 --> 00:00:31,000
-website as a collection of web pages,
+Một cái website là tâp hợp của nhiều trang web lại với nhau,
 
 7
 00:00:31,000 --> 00:00:39,000
