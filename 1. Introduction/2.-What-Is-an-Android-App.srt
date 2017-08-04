@@ -2,7 +2,7 @@
 00:00:01,000 --> 00:00:07,000
 Khi bạn nghĩ đến một ứng trên desktop, bạn có thể nghĩ nó như một cái màn hình duy nhất.
 
-2	
+2
 00:00:07,000 --> 00:00:14,000
 Bạn mở ứng dụng và làm nhiều việc trong đó. Trong Android, nó hơi khác một chút.
 
@@ -60,7 +60,7 @@ Ví dụ như là khi bạn click vào biểu tượng photo trên ứng dụng 
 
 16
 00:01:35,000 --> 00:01:41,000
-We pick a photo in the Gallery app, which is then sent back to the Twitter app to be attached to a tweet.
+Chúng ta chọn một tấm hình trong ứng dụng Gallery, và sau đó, tấm hình sẽ được gửi trở lại ứng dụng Twitter để được đính ở trên Tweet.
 
 17
 00:01:41,000 --> 00:01:46,000
