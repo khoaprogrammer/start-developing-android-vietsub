@@ -1,118 +1,145 @@
 1
 00:00:02,000 --> 00:00:04,000
 Let's compile the Hello World app.
+Để thực thi chương trình Hello World.
 
 2
 00:00:04,000 --> 00:00:15,000
 Go to GitHub, and download the repository. You can either get the ZIP file or use git clone.
+Truy cập vào GitHub, và tải ở tệp Repository. Bạn có thể tải file ZIP hoặc sử dụng git clone.
 
 3
 00:00:15,000 --> 00:00:25,000
 I like to use git clone, so I go to the terminal and create a directory for it.
+Tôi muốn sử dụng git clone, vì vậy tôi sẽ vào Terminal và tạo một thư mục cho nó.
 
 4
 00:00:25,000 --> 00:00:34,000
 Verify that we have downloaded everything, and then go back to Android Studio.
+Xác nhận rằng, chúng ta đã tải đủ tất cả các file cần thiết, và sau đó trở lại với Android Studio.
 
 5
 00:00:34,000 --> 00:00:44,000
 Import the project into Android Studio. Choose the top-level directory, android-hello-world.
+Import chương trình vào Android Studio. Chọn thư mục ở trên cùng, android-hello-world.
 
 6
 00:00:44,000 --> 00:00:51,000
 It may ask you to register the VCS root. That just means that we will have version control integration.
+Nó có thể yêu cầu bạn đăng ký VCS root. Nó có nghĩa là chúng ta sẽ có tích hợp các Version Control 
 
 7
 00:00:51,000 --> 00:01:01,000
 Go ahead and add that. After that, open the Project tab from the left, and choose the Project perspective.
+Tiếp tục và thêm nó vào. Sau đó, mở Tab Project ở phía bên trái và chọn Project Perspective
 
 8
 00:01:01,000 --> 00:01:10,000
 This will reflect your file with the same structure as on disk.
+Điều này sẽ ánh xạ các tập tin với các cấu trúc tương tự như trên đĩa
 
 9
 00:01:10,000 --> 00:01:17,000
 We will look into the actual code later. First, let's get it running on the emulator.
-
+Chúng ta nhìn vào đoạn code sau. Đầu tiên, để thực thi chương trình trên thiết bị giả lập.
 10
 00:01:17,000 --> 00:01:24,000
 To do that, we will need to create an emulator. Click on this purple button.
+Bạn cần làm những điều sau đây, chúng ta cần tạo một thiết bị giả lập. Click vào nút màu tím trên thanh công cụ.
 
 11
 00:01:24,000 --> 00:01:29,000
 To create a virtual device, we need to decide the size, resolution, and density.
+Tạo một máy ảo, chúng ta cần xác định kích thước, độ phân giải và mật độ.
 
 12
 00:01:29,000 --> 00:01:34,000
 At this point it doesn't really matter, so I'm just going to choose the first one.
+Lúc này nó cũng không quan trọng vì thế tôi chỉ cần chọn cái đầu tiên.
 
 13
 00:01:34,000 --> 00:01:41,000
 Next, we need to decide what operating systems to load onto our emulator.
+Tiếp theo, chúng ta cần xác định hệ điều hành để chạy trên thiết bị giả lập.
 
 14
 00:01:41,000 --> 00:01:48,000
 Choose the highest API level. In this example, we have Marshmallow level 23.
+Lựa chọn API có bậc cao nhất. Trong ví dụ này, chúng ta có phiên bản Marshmallow API 23
 
 15
 00:01:48,000 --> 00:01:56,000
 Within Marshmallow, there are two variants, the one that says with Google APIs, and the one without.
+Trong phiên bản Marshmallow, có hai phiên bản, một cái là có hỗ trợ Google APIs và một cái thì không.
 
 16
 00:01:56,000 --> 00:02:01,000
 Choose with Google API so that it will come with things like Google Maps.
+Lựa chọn cái có Google API bởi vì chúng ta sẽ cần đến một vài thứ chả hạn như Google Maps.
 
 17
 00:02:01,000 --> 00:02:11,000
 Within that, you still have 3 choices, 2 of which is the x86 architecture, and 1 is the arm architecture.
-
+Trong đó, bạn vẫn có 3 lựa chọn, 2 lựa chọn cho phiên bản x86, và 1 lựa chọn cho phiên bản armeabi.
 18
 00:02:11,000 --> 00:02:20,000
 In general, the x86 version runs faster, so which one out of those to pick?
+Nói chung, phiên bản x86 chạy nhanh hơn, Vậy nó sẽ là lựa chọn của hầu hết người sử dụng?
 
 19
 00:02:20,000 --> 00:02:24,000
 That depends on whether you have a 32-bit machine or a 64-bit machine.
+Điều đó còn phải phụ thuộc bạn có thiết bị 32 bit hay 64 bit.
 
 20
 00:02:24,000 --> 00:02:35,000
 To find out, use the terminal. You can launch the system terminal, or you can use the one integrated with Android Studio.
+Để tìm chúng, bạn sử dụng Terminal. Bạn có thể chạy ứng dụng Terminal của hệ thống, hoặc bạn có thể sử dụng Terminal được tích hợp trong Android Studio.
 
 21
 00:02:35,000 --> 00:02:46,000
 Let me show you how. Close the Virtual Device Manager, and go to the bottom to open Terminal.
+Để tôi cho bạn thấy. Đóng Virtual Device Manager, và đi xuống dưới mở tab Terminal.
 
 22
 00:02:46,000 --> 00:03:01,000
 Type uname -a. In our example it says x86_64, meaning that this is a 64-bit machine.
+Gõ uname -a. Trong ví dụ của tôi, hệ thống báo là x86_64, điều đó có nghĩa là máy bạn đang sử dụng 64-bit
 
 23
 00:03:01,000 --> 00:03:14,000
 We can go ahead and choose to download that version. This will take a while.
+Chúng ta có thể tiếp tục lựa chọn để tải xuống theo phiên bản đó. Sẽ mất một chút thời gian.
 
 24
 00:03:14,000 --> 00:03:20,000
 Once the download finishes, you can go ahead and use that particular system image in your emulator.
+Một khi quá trình tải được hoàn tất, bây giờ bạn có thể sử dụng thiết bị máy ảo của bạn.
 
 25
 00:03:20,000 --> 00:03:30,000
 After the emulator has been created, go ahead and launch it. I'm going to put the emulator side-by-side with
+Sau khi thiết bị giả lập đã được tạo, khởi động chúng. Tôi đang đặt nó bên cạch Android Studio
 
 26
 00:03:30,000 --> 00:03:38,000
 Android Studio so you can see what happens. To compile and run our app, click the green triangle.
+Vì vậy bạn có thể nhìn xem những gì sẽ hoạt động trên thiết bị. Biên dịch và chạy ứng dụng, ta click vào biểu tượng hình tam giác màu xanh.
 
 27
 00:03:38,000 --> 00:03:44,000
 Here you can see that Android Studio has detected that we have an emulator running.
+Ở đây bạn có thể thấy Android Studio đã xác định được các thiết bị giả lập đang hoạt động. 
 
 28
 00:03:44,000 --> 00:03:50,000
 I usually check the box so that we use the same device all the time, and I don't have to choose a device
+Tôi thường thiết lập thiết bị tôi hay sử dụng vào mọi thời điểm, để tôi không cần phải lựa chọn thiết bị vào lúc tôi thực thi
 
 29
 00:03:50,000 --> 00:04:00,000
 every single time. Here we are, Hello World. Next let's try to run the same app on a real device.
+Ở đây chúng ta có ứng dụng Hello World. Tiếp theo, thử chạy ứng dụng trên thiết bị thật.
 
 30
 00:04:00,000 --> 00:04:07,000
@@ -121,34 +148,42 @@ To deploy your app to a real device, we need to enable developer options so that
 31
 00:04:07,000 --> 00:04:15,000
 Go to Settings. Scroll all the way down until you see About phone.
+vào mục Settings. Cuộn xuống cho tới khi bạn nhìn thấy About phone.
 
 32
 00:04:15,000 --> 00:04:24,000
 Go to About phone, scroll all the way down to Build number, tap Build number seven times.
+vào mục About phone, cuộn xuống cho tới dòng có Build number, bấm 7 lần vào dòng đó. 
 
 33
 00:04:24,000 --> 00:04:32,000
 It will tell you that you are now a developer. Go back and tap on Developer options.
+Khi hoàn thành sẽ có thông báo "You are now a developer". Trở lại và bấm vào Developer options.
 
 34
 00:04:32,000 --> 00:04:44,000
 Switch it on. Scroll down to enable USB debugging. With all that, we can go back to Android Studio and plug
+Bận chế độ Developer. Cuộn xuống và bận chế độ USB debugging. Xong tất cả các bước trên, chúng ta quay trở lại Android Studio và kết nối với điện thoại
 
 35
 00:04:44,000 --> 00:04:52,000
 in the phone. To double-check that everything is set up properly, I am going to show you how to use ADB,
+Để kiểm tra lại mọi thứ đã thiết lập đúng chưa, tôi sẽ cho bạn thấy làm thể nào để sử dụng ADB
 
 36
 00:04:52,000 --> 00:05:02,000
 or Android Debug Bridge. Go to Android Studio, Preferences, and search for Android.
+hay là Android Debug Bridge. Vào Android Studio, chọn Preferences, và Search 
 
 37
 00:05:02,000 --> 00:05:16,000
 Copy the path of the SDK. Then go to the terminal, paste in the path of the SDK, and add platform-tools/adb.
+Sao chép đường dẫn của SDK. Sau đó đến Terminal, dán vào trong đường dẫn của SDK, và thêm platform-tools/adb.
 
 38
 00:05:16,000 --> 00:05:25,000
 If you are on Windows, add adb.exe. This is the full path of the ADB command.
+Nếu như máy bạn là HĐH Windows, thì thêm adb.exe. Nó là đường dẫn đầy đủ của ADB command.
 
 39
 00:05:25,000 --> 00:05:31,000
@@ -157,24 +192,29 @@ If you're going to do a lot of Android development, you may want to add that to 
 40
 00:05:31,000 --> 00:05:37,000
 ADB is very handy to figure out the status of your app and your device.
+ADS rất tiện dụng để tìm ra trạng thái của ứng dụng trên thiết bị.
 
 41
 00:05:37,000 --> 00:05:46,000
 After adb, press space, devices. Before you plug in your phone, it will show nothing.
+Sau khi kết nối ADB, nhấn nút "Space", thiếu bị. Trước khi bạn kết nối điện thoại với máy tính, nó sẽ chưa hiện gì trên màn hình cả. 
 
 42
 00:05:46,000 --> 00:05:53,000
 Now let's plug in our phone. A dialog will show up on your phone asking you if you trust this computer.
+Bây giờ để tôi kết nối điện thoại vs máy tính. Trên điện thoại của bạn một dòng thông báo sẽ hiện lên "If you trust this computer"
 
 43
 00:05:53,000 --> 00:06:05,000
 Check the checkbox, and click OK. Then run adb devices again. This time you should see your phone.
+Bấm chọn vào nó, và click OK. Chạy thiết bị ADB lần nữa. Lúc này bạn nên nhìn vào màn hình điện thoại
 
 44
 00:06:05,000 --> 00:06:13,000
 With that, you can click the green triangle again. This time, instead of the emulator, you will see your
+Bạn có click vào biểu tượng hình tam giac màu xanh. Lúc này, thay vì chạy trên thiết bị giả lập, bạn sẽ nhìn thấy
 
 45
 00:06:13,000 --> 00:59:00,000
 device in the Device Chooser. Here we go, Hello World on your phone.
-
+trên điện thoại của bạn. Nó đây rồi, "Hello World" giờ đã trên điện thoại của bạn.

@@ -1,52 +1,51 @@
 1
 00:00:00,000 --> 00:00:09,000
-Hello, this is Chiu-Ki Chan, and welcome to the Android Studio Installation module.
+Xin chào tất cả các bạn, đây là Chiu-Ki Chan, chào mừng đến với bài Cài đặt Android Studio.
 
 2
 00:00:09,000 --> 00:00:16,000
-In this module, you are going to learn how to setup Android Studio, the IDE, or Integrated Development
+Trong bài học này, bạn sẽ học cách Làm thế nào để cài đặt Android Studio, IDE hay là môi trường phát triển tích hợp
 
 3
 00:00:16,000 --> 00:00:24,000
-Environment for Android. First, we will check that you have the proper JDK installed on your computer.
+cho Android. Đầu tiên, chúng ta sẽ kiểm rằng JDK đã được tích hợp trên máy tính của bạn hay chưa.
 
 4
 00:00:24,000 --> 00:00:32,000
-Next, we will download and install Android Studio. Finally, we will import the Hello World project and run
+Tiếp theo, chúng ta sẽ tải và cài đặt Android Studio. Cuối cùng, chúng ta sẽ import(nhập) chương trình Hello World và thực thi chúng
 
 5
 00:00:32,000 --> 00:00:37,000
-it on an emulator, and then a device.
+trên thiết bị giả lập, hay là một thiết bị thích hợp khác.
 
 6
 00:00:37,000 --> 00:00:47,000
-Android Studio requires JDK version 7. To make sure that is installed on your computer, open the Terminal app.
+Android Studio yêu cầu JDK ver 7, để chắc rằng chúng được cài đặt trên máy tính của bạn, mở ứng dụng Terminal 
 
 7
 00:00:47,000 --> 00:00:56,000
-If you are on Windows, you can use the command prompt. In the terminal, type java -version.
+Nếu máy của bạn là Windows, bạn có thể sử dụng Command Prompt. Trong Terminal, gõ lệnh java -version
 
 8
 00:00:56,000 --> 00:01:03,000
-Look at the build number. The number after 1. is the JDK version.
+Nhìn vào số hiệu bản dựng. Số sau "1." là phiên bản của JDK
 
 9
 00:01:03,000 --> 00:01:11,000
-In this example we have a 6, which means that we need to download the latest JDK.
+Trong ví dụ sau, chúng ta có số 6, nó có nghĩa là chúng ta cần phải tải phiên bản JDK mới nhất
 
 10
 00:01:11,000 --> 00:01:26,000
-Go to the JDK 7 download page. Scroll down to look for the one matching your operating system.
+Truy cập trang JDK 7 download. Cuộn xuống và tìm kiếm phiên bản phù hợp với hệ điều hành bạn đang sử dụng
 
 11
 00:01:26,000 --> 00:01:46,000
-Accept the license agreement and download. Once the download completes, open the file to install it.
+Chấp nhận thoả thuận chính sách và tải về. Một khi tải về hoàn tất, mở file và cài đặt chúng.
 
 12
 00:01:46,000 --> 00:01:57,000
-Then go back to the terminal. Type java -version to verify that you have JDK 7.
+Sau đó trở lại Terminal. Gõ java- version để xác nhận rằng máy tính của bạn có JDK ver7
 
 13
 00:01:57,000 --> 00:59:00,000
-Once again, the number behind 1. is the JDK version. Here you can see that we have JDK 7 installed.
-
+Một lần nữa, con số đằng sau "1." là phiên bản JDK hiện tại. Ở đâu bạn có thể nhìn thấy chúng ta đã cài đặt JDK 7
